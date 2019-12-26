@@ -24,6 +24,7 @@ public class OTPactivity extends AppCompatActivity {
     private String verificationId;
     private FirebaseAuth mAuth;
     EditText et;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +51,9 @@ public class OTPactivity extends AppCompatActivity {
                     Toast.makeText(OTPactivity.this, "Sorry2", Toast.LENGTH_SHORT).show();
                 }
                 else{
+                    String phnumber = getIntent().getStringExtra("number");
                     Intent i =new Intent(OTPactivity.this,register.class);
+                    i.putExtra("number",phnumber);
                     startActivity(i);
                 }
             }
