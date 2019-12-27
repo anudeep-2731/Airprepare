@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -17,6 +18,7 @@ public class register extends AppCompatActivity {
     EditText eemail;
     EditText epassword;
     DatabaseReference databasemember;
+    FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,7 @@ public class register extends AppCompatActivity {
         ename=findViewById(R.id.namer);
         eemail=findViewById(R.id.emailr);
         epassword=findViewById(R.id.passwordr);
+        firebaseAuth=FirebaseAuth.getInstance();
 
     }
 
@@ -42,7 +45,7 @@ public class register extends AppCompatActivity {
         if(!TextUtils.isEmpty(name)){
             String id= databasemember.push().getKey();
             Insert insert=new Insert(id,number,name,email,password);
-            databasemember.child(id).setValue(insert);
+            databasemember.child(firebaseAuth.getUid()).setValue(insert);
             Toast.makeText(this, "REGISTRATION SUCCESS", Toast.LENGTH_SHORT).show();
         }
         else {
