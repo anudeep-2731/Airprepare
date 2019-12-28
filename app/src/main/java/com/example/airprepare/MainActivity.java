@@ -4,8 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -71,7 +74,9 @@ public class MainActivity extends AppCompatActivity {
                                 Log.d("User Login","signInWithEmail::success");
                                 FirebaseUser user=mAuth.getCurrentUser();
                                 progressDialog.dismiss();
+
                                Intent i=new Intent(MainActivity.this,Homescreen.class);
+                               i.putExtra("number1",num);
                                startActivity(i);
                             }
                             else
@@ -100,4 +105,3 @@ public class MainActivity extends AppCompatActivity {
     }
 
     }
-

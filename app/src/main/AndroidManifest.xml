@@ -11,11 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Homescreen"></activity>
+        <activity android:name=".Data_entry_cities"></activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".OTPactivity" />
         <activity android:name=".numberauthentication" />
         <activity android:name=".register" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Homescreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
